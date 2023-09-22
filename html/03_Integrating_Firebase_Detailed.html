@@ -3,7 +3,7 @@
 <head>
   <title>Mastering Firebase Integration with Next.js</title>
   <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'>
-</head>
+<link rel="stylesheet" href="../css/$(basename $file .html).css"><script src="../js/copy_to_clipboard.js"></script></head>
 <body>
 
   <header>
@@ -21,11 +21,11 @@
     </ul>
     <h3>Step 1: Install Firebase SDK</h3>
     <p>Run the following command in your project directory:</p>
-    <code>npm install firebase</code>
+    <div class="code-block"><code>npm install firebase</code></div>
     <h3>Step 2: Initialize Firebase</h3>
-    <p>Create a new file in your project's root directory and name it <code>firebaseConfig.js</code>. Initialize Firebase using your unique config object.</p>
-    <h3>Step 3: Import Firebase in <code>_app.js</code></h3>
-    <p>Ensure Firebase is initialized when your app starts by importing <code>firebaseConfig.js</code> in your <code>_app.js</code> file.</p>
+    <p>Create a new file in your project's root directory and name it <div class="code-block"><code>firebaseConfig.js</code></div>. Initialize Firebase using your unique config object.</p>
+    <h3>Step 3: Import Firebase in <div class="code-block"><code>_app.js</code></div></h3>
+    <p>Ensure Firebase is initialized when your app starts by importing <div class="code-block"><code>firebaseConfig.js</code></div> in your <code>_app.js</code> file.</p>
     <h3>Step 4: Utilize Firebase Services</h3>
     <p>Now, you're all set to use Firebase services like Authentication, Firestore, and more in your Next.js components.</p>
     <h3>Conclusion</h3>
