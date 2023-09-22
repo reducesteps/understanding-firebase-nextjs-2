@@ -1,6 +1,6 @@
 # 🚀 Understanding Firebase and Next.js Integration: A Comprehensive Guide
 
-**Author: Jonathan Oakey**
+**Author: Jonathan David Oakey**
 
 🌟 Are you looking to master the art of integrating Firebase with Next.js? Look no further! This repository is your one-stop solution to understanding the intricacies of Firebase and Next.js integration.
 
