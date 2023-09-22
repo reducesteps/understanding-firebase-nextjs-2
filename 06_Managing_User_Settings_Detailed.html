@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mastering User Settings Management with Firebase and Next.js</title>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../css/06_Managing_User_Settings_Detailed.css">
+  <script src="../js/copy_to_clipboard.js"></script>
+</head>
+<body>
+
+  <header class='bg-primary text-white text-center p-4'>
+    <h1>Mastering User Settings Management with Firebase and Next.js</h1>
+    <p>By Jonathan David Oakey</p>
+  </header>
+
+  <main class='container my-5'>
+    <h2>Take Control of User Settings Like Never Before</h2>
+    <p>Managing user settings is often an overlooked aspect of app development. But not anymore! With Firebase and Next.js, you can create a dynamic, user-centric experience. Let's get started!</p>
+    <h3>Are You Ready to Transform User Experience?</h3>
+    <ul>
+      <li>Firebase and Next.js integrated in your project</li>
+    </ul>
+    <h3>Step 1: Create a Firestore Collection</h3>
+    <p>Firestore collections are the backbone of your user settings. Create a collection named `userSettings` to kickstart your journey.</p>
+    <div class="code-block"><code>const db = firebase.firestore();
+db.collection('userSettings').add({
+  theme: 'dark',
+  notifications: true
+});</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 2: Structure the Firestore Document</h3>
+    <p>Each document should have a unique identifier, usually the user's UID. Add fields for the settings you wish to manage.</p>
+    <div class="code-block"><code>const userSettingsDoc = db.collection('userSettings').doc('user_id');
+userSettingsDoc.set({
+  theme: 'dark',
+  notifications: true
+});</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 3: Add Data to Firestore</h3>
+    <p>Adding data is as simple as running a `set` method. But do it wisely to ensure optimal performance.</p>
+    <div class="code-block"><code>userSettingsDoc.set({
+  theme: 'light',
+  notifications: false
+}, { merge: true });</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 4: Retrieve Data from Firestore</h3>
+    <p>Fetching data is an art. Use the `get` method to retrieve user settings and make your app truly dynamic.</p>
+    <div class="code-block"><code>userSettingsDoc.get().then((doc) => {
+  if (doc.exists) {
+    console.log('User settings:', doc.data());
+  }
+});</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 5: Update Data in Firestore</h3>
+    <p>Updates are inevitable. Use the `update` method to change settings and keep your users engaged.</p>
+    <div class="code-block"><code>userSettingsDoc.update({
+  theme: 'light'
+});</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 6: Real-time Updates</h3>
+    <p>Why settle for less? Use the `onSnapshot` method for real-time updates and keep your users hooked.</p>
+    <div class="code-block"><code>userSettingsDoc.onSnapshot((doc) => {
+  console.log('Current settings:', doc.data());
+});</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Conclusion</h3>
+    <p>You've successfully set up a robust system for managing user settings. Your Next.js app is now more dynamic and user-friendly than ever.</p>
+  </main>
+
+</body>
+</html>

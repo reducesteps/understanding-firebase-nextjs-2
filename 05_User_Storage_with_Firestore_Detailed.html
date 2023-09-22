@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mastering User Storage with Firestore in Next.js</title>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="../css/05_User_Storage_with_Firestore_Detailed.css">
+  <script src="../js/copy_to_clipboard.js"></script>
+</head>
+<body>
+
+  <header class='bg-primary text-white text-center p-4'>
+    <h1>Mastering User Storage with Firestore in Next.js</h1>
+    <p>By Jonathan David Oakey</p>
+  </header>
+
+  <main class='container my-5'>
+    <h2>Transform Your User Storage with Firestore</h2>
+    <p>Firestore is not just a database; it's a game-changer for your Next.js application. This guide will show you how to integrate Firestore for user storage like a pro.</p>
+    <h3>Are You Ready to Level Up?</h3>
+    <ul>
+      <li>Firebase SDK installed</li>
+      <li>Firebase initialized in your Next.js project</li>
+    </ul>
+    <h3>Step 1: Import Firestore</h3>
+    <p>Import Firestore where you'll use it. This is your first step towards a more dynamic user experience.</p>
+    <div class="code-block"><code>import 'firebase/firestore';</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 2: Create Collections Like a Pro</h3>
+    <p>Collections in Firestore are more than just folders; they're the backbone of your user data. Learn how to create them efficiently.</p>
+    <div class="code-block"><code>const db = firebase.firestore();
+db.collection('users').add({
+  name: 'John',
+  age: 30
+});</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 3: Read Data the Smart Way</h3>
+    <p>Reading data is an art. Do it the smart way and optimize your application's performance.</p>
+    <div class="code-block"><code>db.collection('users').get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+  });
+});</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 4: Update Data Securely</h3>
+    <p>Updates are inevitable. Do them securely and keep your users' trust.</p>
+    <div class="code-block"><code>db.collection('users').doc('user_id').update({
+  age: 31
+});</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 5: Delete Data Responsibly</h3>
+    <p>Deleting data is a big step. Make sure you do it responsibly.</p>
+    <div class="code-block"><code>db.collection('users').doc('user_id').delete();</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Step 6: Real-time Updates</h3>
+    <p>Why settle for less when you can have real-time updates? Keep your users engaged with live data.</p>
+    <div class="code-block"><code>db.collection('users').onSnapshot((snapshot) => {
+  snapshot.docChanges().forEach((change) => {
+    if (change.type === 'added') {
+      console.log('New user:', change.doc.data());
+    }
+  });
+});</code><button class='btn btn-clipboard' data-clipboard-target='.code-block code'>📋</button></div>
+    <h3>Conclusion</h3>
+    <p>You've not just integrated Firestore; you've mastered it. Your Next.js application is now a powerhouse of user data storage.</p>
+  </main>
+
+</body>
+</html>
