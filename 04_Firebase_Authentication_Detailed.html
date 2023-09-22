@@ -1,98 +1,65 @@
-<!DOCTYPE html><html><head><title></title></head><body><h1></h1>
-<p># Detailed Firebase Authentication in a Next.js Project</p>
-<p></p>
-<p>## Introduction</p>
-<p></p>
-<p>Firebase Authentication provides various methods to authenticate users in your application. This guide will walk you through the steps to integrate Firebase Authentication into a Next.js project.</p>
-<p></p>
-<p>## Prerequisites</p>
-<p></p>
-<p>- Firebase SDK installed and initialized</p>
-<p>- Next.js project set up</p>
-<p></p>
-<p>## Step-by-Step Guide</p>
-<p></p>
-<p>### Step 1: Import Firebase</p>
-<p></p>
-<p>First, import Firebase into the component where you'll be implementing authentication.</p>
-<p></p>
-<p>```javascript</p>
-<p>import firebase from '../firebaseConfig';</p>
-<p>```</p>
-<p></p>
-<p>### Step 2: Create Authentication Functions</p>
-<p></p>
-<p>Create functions to handle user sign-in, sign-up, and sign-out. Here are some sample functions:</p>
-<p></p>
-<p>```javascript</p>
-<p>// Sign in user</p>
-<p>const signIn = async (email, password) => {</p>
-<p>  try {</p>
-<p>    await firebase.auth().signInWithEmailAndPassword(email, password);</p>
-<p>  } catch (error) {</p>
-<p>    console.error('Error signing in:', error);</p>
-<p>  }</p>
-<p>};</p>
-<p></p>
-<p>// Sign up user</p>
-<p>const signUp = async (email, password) => {</p>
-<p>  try {</p>
-<p>    await firebase.auth().createUserWithEmailAndPassword(email, password);</p>
-<p>  } catch (error) {</p>
-<p>    console.error('Error signing up:', error);</p>
-<p>  }</p>
-<p>};</p>
-<p></p>
-<p>// Sign out user</p>
-<p>const signOut = async () => {</p>
-<p>  try {</p>
-<p>    await firebase.auth().signOut();</p>
-<p>  } catch (error) {</p>
-<p>    console.error('Error signing out:', error);</p>
-<p>  }</p>
-<p>};</p>
-<p>```</p>
-<p></p>
-<p>### Step 3: Add Authentication State Listener</p>
-<p></p>
-<p>Firebase allows you to listen for changes in the user's authentication state. You can add this listener in your `_app.js` or a specific component.</p>
-<p></p>
-<p>```javascript</p>
-<p>firebase.auth().onAuthStateChanged((user) => {</p>
-<p>  if (user) {</p>
-<p>    // User is signed in</p>
-<p>  } else {</p>
-<p>    // User is signed out</p>
-<p>  }</p>
-<p>});</p>
-<p>```</p>
-<p></p>
-<p>### Step 4: Implement UI</p>
-<p></p>
-<p>Create UI components for sign-in, sign-up, and sign-out. Link these components to the authentication functions you created earlier.</p>
-<p></p>
-<p>### Step 5: Secure Routes</p>
-<p></p>
-<p>You can use Next.js' `getServerSideProps` to secure routes and redirect unauthenticated users.</p>
-<p></p>
-<p>```javascript</p>
-<p>export async function getServerSideProps(context) {</p>
-<p>  const session = await getSession(context);</p>
-<p>  if (!session) {</p>
-<p>    return {</p>
-<p>      redirect: {</p>
-<p>        destination: '/login',</p>
-<p>        permanent: false,</p>
-<p>      },</p>
-<p>    };</p>
-<p>  }</p>
-<p>  return {</p>
-<p>    props: {},</p>
-<p>  };</p>
-<p>}</p>
-<p>```</p>
-<p></p>
-<p>## Conclusion</p>
-<p></p>
-<p>You've successfully integrated Firebase Authentication into your Next.js project. You can now authenticate users using various methods provided by Firebase.</p>
-</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mastering Firebase Authentication with Next.js</title>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    header {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      margin-top: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 8px 0;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mastering Firebase Authentication with Next.js</h1>
+    <p>By Jonathan Oakey</p>
+  </header>
+
+  <main class='container'>
+    <h2>Unlock the Full Potential of Firebase Authentication</h2>
+    <p>Why settle for basic authentication when you can offer your users a seamless, secure, and versatile experience? Firebase Authentication is your one-stop solution, and this guide will show you how to integrate it flawlessly into your Next.js application.</p>
+    <h3>Ready to Elevate Your User Experience?</h3>
+    <ul>
+      <li>Node.js and npm installed</li>
+      <li>Next.js project up and running</li>
+    </ul>
+    <h3>Step 1: Import Firebase</h3>
+    <p>Start by importing Firebase into the component where you'll be implementing authentication. This is the foundation of your secure application.</p>
+    <h3>Step 2: Create Robust Authentication Functions</h3>
+    <p>Go beyond basic functions. Create robust methods for user sign-in, sign-up, and sign-out. Handle errors gracefully and keep your users informed.</p>
+    <h3>Step 3: Add an Authentication State Listener</h3>
+    <p>Keep track of your users even when they navigate away from the page. Firebase's state listener has got you covered.</p>
+    <h3>Step 4: Craft an Intuitive UI</h3>
+    <p>Don't just make it work—make it look good. Design intuitive UI components for sign-in, sign-up, and sign-out.</p>
+    <h3>Step 5: Secure Your Routes</h3>
+    <p>Security is not an afterthought. Use Next.js' `getServerSideProps` to secure routes and redirect unauthenticated users.</p>
+    <h3>Conclusion</h3>
+    <p>You've not just integrated Firebase Authentication—you've mastered it. Your Next.js application is now a fortress of security and usability.</p>
+  </main>
+
+</body>
+</html>

@@ -1,65 +1,64 @@
-<!DOCTYPE html><html><head><title></title></head><body><h1></h1>
-<p># Detailed Component Structure in Next.js with Firebase</p>
-<p></p>
-<p>## Introduction</p>
-<p></p>
-<p>In a Next.js project integrated with Firebase, the component structure plays a crucial role in ensuring maintainability and scalability. This guide will delve into how to structure your Next.js components when using Firebase services.</p>
-<p></p>
-<p>## Functional Components</p>
-<p></p>
-<p>Next.js promotes the use of functional components. Here's a simple example:</p>
-<p></p>
-<p>```javascript</p>
-<p>const MyComponent = () => {</p>
-<p>  return (</p>
-<p>    <div>Hello, World!</div></p>
-<p>  );</p>
-<p>};</p>
-<p>```</p>
-<p></p>
-<p>## Using React Hooks</p>
-<p></p>
-<p>React hooks like `useState` and `useEffect` can be used for state management and side-effects.</p>
-<p></p>
-<p>```javascript</p>
-<p>import { useState, useEffect } from 'react';</p>
-<p>```</p>
-<p></p>
-<p>## Custom Hooks for Firebase</p>
-<p></p>
-<p>You can create custom hooks to handle Firebase logic. For example, a custom hook for Firebase authentication might look like this:</p>
-<p></p>
-<p>```javascript</p>
-<p>import { useState, useEffect } from 'react';</p>
-<p>import firebase from '../firebaseConfig';</p>
-<p></p>
-<p>const useFirebaseAuth = () => {</p>
-<p>  const [user, setUser] = useState(null);</p>
-<p></p>
-<p>  useEffect(() => {</p>
-<p>    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {</p>
-<p>      setUser(user);</p>
-<p>    });</p>
-<p>    return () => unsubscribe();</p>
-<p>  }, []);</p>
-<p></p>
-<p>  return user;</p>
-<p>};</p>
-<p>```</p>
-<p></p>
-<p>## Component Composition</p>
-<p></p>
-<p>Break down UI into smaller, reusable components. For example, a `Header` component can be used across multiple pages.</p>
-<p></p>
-<p>## Context API for Global State</p>
-<p></p>
-<p>For global state management, you can use React's Context API. This is useful for sharing Firebase user data across components.</p>
-<p></p>
-<p>```javascript</p>
-<p>import React, { createContext, useContext } from 'react';</p>
-<p>```</p>
-<p></p>
-<p>## Conclusion</p>
-<p></p>
-<p>By following this guide, you'll have a well-structured Next.js project that efficiently uses Firebase services. This structure will make it easier to maintain and scale your application.</p>
-</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mastering Component Structure in Next.js with Firebase</title>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    header {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      margin-top: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 8px 0;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mastering Component Structure in Next.js with Firebase</h1>
+    <p>By Jonathan Oakey</p>
+  </header>
+
+  <main class='container'>
+    <h2>Unlock the Secrets of Component Structure</h2>
+    <p>Component structure is the backbone of any Next.js project, especially when integrated with Firebase. This guide will help you master the art of organizing your components for a scalable and maintainable application.</p>
+    <h3>Are You Ready to Transform Your Next.js Project?</h3>
+    <ul>
+      <li>Basic understanding of Next.js and Firebase</li>
+    </ul>
+    <h3>Step 1: Embrace Functional Components</h3>
+    <p>Functional components are the future. Learn how to create them and make your codebase cleaner and more efficient.</p>
+    <h3>Step 2: Master React Hooks</h3>
+    <p>React Hooks like `useState` and `useEffect` are your best friends for state management and side-effects.</p>
+    <h3>Step 3: Create Custom Hooks for Firebase</h3>
+    <p>Why reinvent the wheel? Create custom hooks to handle Firebase logic and make your components leaner.</p>
+    <h3>Step 4: Understand Component Composition</h3>
+    <p>Component composition is an art. Learn how to break down your UI into smaller, reusable components.</p>
+    <h3>Step 5: Leverage Context API for Global State</h3>
+    <p>Global state management is a breeze with React's Context API. Perfect for sharing Firebase user data across components.</p>
+    <h3>Conclusion</h3>
+    <p>By mastering component structure, you're not just coding; you're crafting an experience. Your Next.js project is now more organized, scalable, and maintainable.</p>
+  </main>
+
+</body>
+</html>

@@ -1,73 +1,66 @@
-<!DOCTYPE html><html><head><title></title></head><body><h1></h1>
-<p># Managing User Settings in a Firebase-Next.js Project</p>
-<p></p>
-<p>## Introduction</p>
-<p></p>
-<p>Managing user settings involves storing, retrieving, and updating user-specific data. Firebase Firestore offers a robust solution for this. This guide will walk you through the process of managing user settings in a Firebase-Next.js project.</p>
-<p></p>
-<p>## Prerequisites</p>
-<p></p>
-<p>- Firebase and Next.js integrated in your project</p>
-<p></p>
-<p>## Step-by-Step Guide</p>
-<p></p>
-<p>### Step 1: Create a Firestore Collection</p>
-<p></p>
-<p>Create a Firestore collection named `userSettings` to store user-specific settings.</p>
-<p></p>
-<p>### Step 2: Structure the Firestore Document</p>
-<p></p>
-<p>Each document in the `userSettings` collection should have a unique identifier, usually the user's UID, and contain fields for the settings you wish to manage.</p>
-<p></p>
-<p>### Step 3: Add Data to Firestore</p>
-<p></p>
-<p>To add data to Firestore, you can use the `set` method.</p>
-<p></p>
-<p>```javascript</p>
-<p>const db = firebase.firestore();</p>
-<p>const userSettingsRef = db.collection('userSettings').doc(user.uid);</p>
-<p></p>
-<p>userSettingsRef.set({</p>
-<p>  theme: 'dark',</p>
-<p>  notifications: true</p>
-<p>});</p>
-<p>```</p>
-<p></p>
-<p>### Step 4: Retrieve Data from Firestore</p>
-<p></p>
-<p>To retrieve user settings, use the `get` method.</p>
-<p></p>
-<p>```javascript</p>
-<p>userSettingsRef.get().then((doc) => {</p>
-<p>  if (doc.exists) {</p>
-<p>    const settings = doc.data();</p>
-<p>    console.log('User settings:', settings);</p>
-<p>  }</p>
-<p>});</p>
-<p>```</p>
-<p></p>
-<p>### Step 5: Update Data in Firestore</p>
-<p></p>
-<p>To update user settings, use the `update` method.</p>
-<p></p>
-<p>```javascript</p>
-<p>userSettingsRef.update({</p>
-<p>  theme: 'light'</p>
-<p>});</p>
-<p>```</p>
-<p></p>
-<p>### Step 6: Real-time Updates</p>
-<p></p>
-<p>Firebase allows real-time updates using the `onSnapshot` method.</p>
-<p></p>
-<p>```javascript</p>
-<p>userSettingsRef.onSnapshot((doc) => {</p>
-<p>  const updatedSettings = doc.data();</p>
-<p>  console.log('Updated settings:', updatedSettings);</p>
-<p>});</p>
-<p>```</p>
-<p></p>
-<p>## Conclusion</p>
-<p></p>
-<p>You've successfully set up a system to manage user settings using Firebase Firestore in your Next.js project.</p>
-</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mastering User Settings Management with Firebase and Next.js</title>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel='stylesheet'>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    header {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      margin-top: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 8px 0;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mastering User Settings Management with Firebase and Next.js</h1>
+    <p>By Jonathan Oakey</p>
+  </header>
+
+  <main class='container'>
+    <h2>Take Control of User Settings Like Never Before</h2>
+    <p>Managing user settings is often an overlooked aspect of app development. But not anymore! With Firebase and Next.js, you can create a dynamic, user-centric experience. Let's get started!</p>
+    <h3>Are You Ready to Transform User Experience?</h3>
+    <ul>
+      <li>Firebase and Next.js integrated in your project</li>
+    </ul>
+    <h3>Step 1: Create a Firestore Collection</h3>
+    <p>Firestore collections are the backbone of your user settings. Create a collection named `userSettings` to kickstart your journey.</p>
+    <h3>Step 2: Structure the Firestore Document</h3>
+    <p>Each document should have a unique identifier, usually the user's UID. Add fields for the settings you wish to manage.</p>
+    <h3>Step 3: Add Data to Firestore</h3>
+    <p>Adding data is as simple as running a `set` method. But do it wisely to ensure optimal performance.</p>
+    <h3>Step 4: Retrieve Data from Firestore</h3>
+    <p>Fetching data is an art. Use the `get` method to retrieve user settings and make your app truly dynamic.</p>
+    <h3>Step 5: Update Data in Firestore</h3>
+    <p>Updates are inevitable. Use the `update` method to change settings and keep your users engaged.</p>
+    <h3>Step 6: Real-time Updates</h3>
+    <p>Why settle for less? Use the `onSnapshot` method for real-time updates and keep your users hooked.</p>
+    <h3>Conclusion</h3>
+    <p>You've successfully set up a robust system for managing user settings. Your Next.js app is now more dynamic and user-friendly than ever.</p>
+  </main>
+
+</body>
+</html>
