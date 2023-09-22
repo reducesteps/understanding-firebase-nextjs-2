@@ -13,3 +13,5 @@
 - [🛠️ Component Structure Demystified](07_Component_Structure_Detailed.md)
 
 👉 Dive in now and elevate your Firebase and Next.js skills to the next level!
+
+🌐 [View the GitHub Pages Site](https://reducesteps.github.io/understanding-firebase-nextjs-2/)
